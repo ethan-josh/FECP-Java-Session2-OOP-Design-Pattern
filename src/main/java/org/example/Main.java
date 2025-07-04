@@ -30,10 +30,7 @@ public class Main {
                     System.out.print("Enter patient name: ");
                     String name = myObj.nextLine();
 
-                    System.out.print("Enter insurance type (hmo, cash, senior): ");
-                    String insurance = myObj.nextLine().toLowerCase();
-
-                    currentPatient = new Patient(name, insurance);
+                    currentPatient = new Patient(name);
                     break;
                 case 2:
                     break;

@@ -9,6 +9,9 @@ public class Patient {
         this.name = name;
         this.insuranceType = insuranceType;
     }
+    public Patient(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
