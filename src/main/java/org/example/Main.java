@@ -30,10 +30,56 @@ public class Main {
                 case 2:
                     break;
                 case 3:
+                    computeBill();
+
                     break;
                 case 4:
                     break;
             }
         }
+    }
+
+    private static final String[] INSURANCE_TYPE = {"hmo", "cash", "senior"};
+
+    public static void computeBill() {
+        Scanner input = new Scanner(System.in);
+
+        String insuranceType;
+        while (true) {
+            System.out.print("Insurance Type (hmo/cash/senior): ");
+            insuranceType = input.nextLine();
+
+            if (isValidInsuranceType(insuranceType)) {
+                break;
+            }
+
+            System.out.println("Invalid Input. Please try again.");
+        }
+
+        double cost = 0.0;
+        while (true) {
+            System.out.print("Original cost: ");
+            String inputtedCost = input.nextLine();
+
+            try {
+                cost = Double.parseDouble(inputtedCost);
+
+                if (cost < 0) System.out.println("Cost cannot be negative. Please try again.");
+                else break;
+            } catch (Exception err) {
+                System.out.println("Invalid number format. Please try again.");
+            }
+        }
+
+        System.out.println("Discounted cost: " + Insurance.getFinalCost(insuranceType, cost));
+        System.out.println("Bill generated successfully!");
+    }
+
+    private static boolean isValidInsuranceType(String input) {
+        for (String insurance : INSURANCE_TYPE) {
+            if (insurance.equalsIgnoreCase(input)) return true;
+        }
+
+        return false;
     }
 }
