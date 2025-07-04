@@ -1,6 +1,7 @@
 package org.example;
 import java.util.*;
-// Created by Ronan Aaron Doncillo; Raphael Daniel Horra; Ethan Joshua Camingao
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void printUserMenu() {
         System.out.println("=== Hospital Billing System ===");
