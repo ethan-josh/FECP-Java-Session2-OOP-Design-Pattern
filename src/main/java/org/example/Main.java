@@ -18,6 +18,7 @@ public class Main {
 
         Scanner myObj = new Scanner(System.in); // scanner object for user input
         int userChoice = 0; // user choice for the menu
+        Patient currentPatient = null; // holds the registered patient
 
         // Loop user menu
         while (userChoice != 4) {
@@ -26,6 +27,13 @@ public class Main {
 
             switch (userChoice){
                 case 1:
+                    System.out.print("Enter patient name: ");
+                    String name = myObj.nextLine();
+
+                    System.out.print("Enter insurance type (hmo, cash, senior): ");
+                    String insurance = myObj.nextLine().toLowerCase();
+
+                    currentPatient = new Patient(name, insurance);
                     break;
                 case 2:
                     break;
