@@ -45,10 +45,49 @@ public class Main {
                     System.out.println("Service added to patient bill.");
                     break;
                 case 3:
+                    try {
+                        computeBill(currentService.returnServiceAmount());
+                    } catch (Exception err) {
+                        System.out.println("\n=========================================");
+                        System.out.println("Warning! Please add a service first.");
+                        System.out.println("=========================================\n");
+                    }
+
                     break;
                 case 4:
                     break;
             }
         }
+    }
+
+    private static final String[] INSURANCE_TYPE = {"hmo", "cash", "senior"};
+
+    public static void computeBill(double cost) {
+        Scanner input = new Scanner(System.in);
+
+        String insuranceType;
+        while (true) {
+            System.out.print("Insurance Type (hmo/cash/senior): ");
+            insuranceType = input.nextLine();
+
+            if (isValidInsuranceType(insuranceType)) {
+                break;
+            }
+
+            System.out.println("Invalid Input. Please try again.");
+        }
+
+        System.out.println("\n=========================================");
+        System.out.println("Discounted cost: " + Insurance.getFinalCost(insuranceType, cost));
+        System.out.println("=========================================");
+        System.out.println("Bill generated successfully!\n");
+    }
+
+    private static boolean isValidInsuranceType(String input) {
+        for (String insurance : INSURANCE_TYPE) {
+            if (insurance.equalsIgnoreCase(input)) return true;
+        }
+
+        return false;
     }
 }
