@@ -15,9 +15,12 @@ public class Main {
             /*
             Create services with Service Factory here
              */
+        ServiceFactory serviceFactory = new ServiceFactory();
 
         Scanner myObj = new Scanner(System.in); // scanner object for user input
         int userChoice = 0; // user choice for the menu
+        Patient currentPatient = null; // holds the registered patient
+        Service currentService = null; // holds the selected service
 
         // Loop user menu
         while (userChoice != 4) {
@@ -26,8 +29,20 @@ public class Main {
 
             switch (userChoice){
                 case 1:
+                    System.out.print("Enter patient name: ");
+                    String name = myObj.nextLine();
+
+                    currentPatient = new Patient(name);
                     break;
                 case 2:
+                    System.out.println("Available Services: X-Ray (500), Surgery (12000), Consultation (700)");
+                    String selectedService = "";
+                    while (!selectedService.equalsIgnoreCase("xray") && !selectedService.equalsIgnoreCase("x-ray") && !selectedService.equalsIgnoreCase("surgery") && !selectedService.equalsIgnoreCase("consultation") ){
+                        System.out.print("Select service to add: ");
+                        selectedService = myObj.nextLine();
+                    }
+                    currentService =  serviceFactory.getService(selectedService);
+                    System.out.println("Service added to patient bill.");
                     break;
                 case 3:
                     computeBill();
