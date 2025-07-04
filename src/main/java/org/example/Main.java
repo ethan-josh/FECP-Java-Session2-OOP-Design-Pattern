@@ -45,7 +45,13 @@ public class Main {
                     System.out.println("Service added to patient bill.");
                     break;
                 case 3:
-                    computeBill();
+                    try {
+                        computeBill(currentService.returnServiceAmount());
+                    } catch (Exception err) {
+                        System.out.println("\n=========================================");
+                        System.out.println("Warning! Please add a service first.");
+                        System.out.println("=========================================\n");
+                    }
 
                     break;
                 case 4:
@@ -56,7 +62,7 @@ public class Main {
 
     private static final String[] INSURANCE_TYPE = {"hmo", "cash", "senior"};
 
-    public static void computeBill() {
+    public static void computeBill(double cost) {
         Scanner input = new Scanner(System.in);
 
         String insuranceType;
@@ -71,23 +77,10 @@ public class Main {
             System.out.println("Invalid Input. Please try again.");
         }
 
-        double cost = 0.0;
-        while (true) {
-            System.out.print("Original cost: ");
-            String inputtedCost = input.nextLine();
-
-            try {
-                cost = Double.parseDouble(inputtedCost);
-
-                if (cost < 0) System.out.println("Cost cannot be negative. Please try again.");
-                else break;
-            } catch (Exception err) {
-                System.out.println("Invalid number format. Please try again.");
-            }
-        }
-
+        System.out.println("\n=========================================");
         System.out.println("Discounted cost: " + Insurance.getFinalCost(insuranceType, cost));
-        System.out.println("Bill generated successfully!");
+        System.out.println("=========================================");
+        System.out.println("Bill generated successfully!\n");
     }
 
     private static boolean isValidInsuranceType(String input) {
