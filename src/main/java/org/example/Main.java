@@ -1,17 +1,39 @@
 package org.example;
-
+import java.util.*;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void printUserMenu() {
+        System.out.println("=== Hospital Billing System ===");
+        System.out.println("1. Register Patient");
+        System.out.println("2. Add Service");
+        System.out.println("3. Compute Bill");
+        System.out.println("4. Exit");
+    }
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    public static void main(String[] args) {
+            /*
+            Create services with Service Factory here
+             */
+
+        Scanner myObj = new Scanner(System.in); // scanner object for user input
+        int userChoice = 0; // user choice for the menu
+
+        // Loop user menu
+        while (userChoice != 4) {
+            printUserMenu();
+            userChoice = myObj.nextInt();
+
+            switch (userChoice){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
     }
 }
