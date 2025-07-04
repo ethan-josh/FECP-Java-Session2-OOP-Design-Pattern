@@ -25,6 +25,7 @@ public class Main {
         // Loop user menu
         while (userChoice != 4) {
             printUserMenu();
+            System.out.print("Enter choice: ");
             userChoice = myObj.nextInt();
 
             switch (userChoice){
