@@ -1,7 +1,6 @@
 package org.example;
 import java.util.*;
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// Created by Ronan Aaron Doncillo; Raphael Daniel Horra; Ethan Joshua Camingao
 public class Main {
     public static void printUserMenu() {
         System.out.println("=== Hospital Billing System ===");
@@ -12,9 +11,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-            /*
-            Create services with Service Factory here
-             */
         ServiceFactory serviceFactory = new ServiceFactory();
 
         Scanner myObj = new Scanner(System.in); // scanner object for user input
