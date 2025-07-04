@@ -35,14 +35,21 @@ public class Main {
                     currentPatient = new Patient(name);
                     break;
                 case 2:
-                    System.out.println("Available Services: X-Ray (500), Surgery (12000), Consultation (700)");
-                    String selectedService = "";
-                    while (!selectedService.equalsIgnoreCase("xray") && !selectedService.equalsIgnoreCase("x-ray") && !selectedService.equalsIgnoreCase("surgery") && !selectedService.equalsIgnoreCase("consultation") ){
-                        System.out.print("Select service to add: ");
-                        selectedService = myObj.nextLine();
+                    if (currentPatient == null) {
+                        System.out.println("\n=========================================");
+                        System.out.println("Warning! Please register a patient first.");
+                        System.out.println("=========================================\n");
+
+                    } else {
+                        System.out.println("Available Services: X-Ray (500), Surgery (12000), Consultation (700)");
+                        String selectedService = "";
+                        while (!selectedService.equalsIgnoreCase("xray") && !selectedService.equalsIgnoreCase("x-ray") && !selectedService.equalsIgnoreCase("surgery") && !selectedService.equalsIgnoreCase("consultation") ){
+                            System.out.print("Select service to add: ");
+                            selectedService = myObj.next();
+                        }
+                        currentService =  serviceFactory.getService(selectedService);
+                        System.out.println("Service added to patient bill.");
                     }
-                    currentService =  serviceFactory.getService(selectedService);
-                    System.out.println("Service added to patient bill.");
                     break;
                 case 3:
                     try {
