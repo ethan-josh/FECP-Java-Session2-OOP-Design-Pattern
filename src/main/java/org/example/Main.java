@@ -30,7 +30,7 @@ public class Main {
             switch (userChoice){
                 case 1:
                     System.out.print("Enter patient name: ");
-                    String name = myObj.nextLine();
+                    String name = myObj.next();
 
                     currentPatient = new Patient(name);
                     break;
